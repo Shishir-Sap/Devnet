@@ -1,0 +1,24 @@
+
+PLAY [INTERFACE ADDRESSING] *****************************************************************************************
+
+TASK [run show ip int brief] ****************************************************************************************
+ok: [iosxe]
+
+TASK [display interfaces] *******************************************************************************************
+ok: [iosxe] => {
+    "interfaces[\"stdout_lines\"][0]": [
+        "Interface              IP-Address      OK? Method Status                Protocol",
+        "GigabitEthernet1       10.10.20.48     YES NVRAM  up                    up      ",
+        "GigabitEthernet2       10.255.255.1    YES other  down                  down    ",
+        "GigabitEthernet3       87.2.3.4        YES other  administratively down down    ",
+        "Loopback10             10.10.40.200    YES other  up                    up      ",
+        "Loopback100            172.16.100.1    YES other  up                    up      ",
+        "Loopback101            143.1.1.1       YES other  up                    up      ",
+        "Loopback200            1.1.1.2         YES other  up                    up      ",
+        "VirtualPortGroup0      192.168.1.1     YES manual up                    up"
+    ]
+}
+
+PLAY RECAP **********************************************************************************************************
+iosxe                      : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
